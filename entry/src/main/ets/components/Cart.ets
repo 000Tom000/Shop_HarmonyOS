@@ -280,7 +280,7 @@ export struct Cart {
                 .width("100%").padding({ left: 12, right: 12, bottom: 10 })
               }
               .backgroundColor("#FFFFFF").borderRadius(12)
-            }, (item: CartItem) => item.goodsId.toString())
+            }, (item: CartItem) => `${item.goodsId}_${item.count}_${item.selected}`)
           }
           .padding({ left: 10, right: 10, top: 10, bottom: 10 })
           .constraintSize({ minHeight: "100%" })
