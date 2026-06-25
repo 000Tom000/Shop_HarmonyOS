@@ -1,0 +1,1031 @@
+{
+  "info": {
+    "_postman_id": "6fd7f550-09f9-4e90-a0bd-a97132d856b2",
+    "name": "线上商城",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "28372395"
+  },
+  "item": [
+    {
+      "name": "user",
+      "item": [
+        {
+          "name": "获取登录信息",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/user",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "user"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "退出登录",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/logout",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "登录",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.environment.set(\"token\", pm.response.json()[\"data\"][\"session_id\"]);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"Tom\",\r\n    \"password\": 123456\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "login"
+              ],
+              "query": [
+                {
+                  "key": "username",
+                  "value": "Tom",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "password",
+                  "value": "123456",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "news",
+      "item": [
+        {
+          "name": "获取新闻列表",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/news/list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "news",
+                "list"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null,
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "获取新闻详情",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/news/show",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "news",
+                "show"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "14",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "获取轮播图",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/imglist",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "imglist"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null,
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "shop",
+      "item": [
+        {
+          "name": "获取分类信息",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/category",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "category"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "获取商品列表",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/goodslist?category_id=2",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "goodslist"
+              ],
+              "query": [
+                {
+                  "key": "category_id",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "获取商品详情",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/goodsinfo?id=179",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "goodsinfo"
+              ],
+              "query": [
+                {
+                  "key": "id",
+                  "value": "179"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "address",
+      "item": [
+        {
+          "name": "获取收货地址列表",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/address",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "address"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "获取默认收货地址",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/address/def",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "address",
+                "def"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "保存收货地址",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"name\": \"TOM\",\r\n    \"tel\": \"12345678901\",\r\n    \"area\":\t\"area\" ,\r\n    \"detail\": \"detail\",\r\n    \"id\": 143\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/address/save",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "address",
+                "save"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "删除收货地址",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 154\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/address/del",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "address",
+                "del"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "查询需要修改的收货地址信息",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/address/edit",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "address",
+                "edit"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "ai",
+      "item": [
+        {
+          "name": "AI",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"你是谁？\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "localhost:8000/chat",
+              "host": [
+                "localhost"
+              ],
+              "port": "8000",
+              "path": [
+                "chat"
+              ],
+              "query": [
+                {
+                  "key": "message",
+                  "value": "你今天好吗",
+                  "type": "text",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "orders",
+      "item": [
+        {
+          "name": "创建订单",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"address\": 143,\r\n    \"goods\": [{\r\n        \"id\":\"205\",\r\n        \"count\":7,\r\n        \"selected\":true\r\n    },{\r\n        \"id\":\"204\",\r\n        \"count\":1,\r\n        \"selected\":false\r\n    }],\r\n    \"note\": \"857\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/order/create",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "order",
+                "create"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "创建订单",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"address\": 143,\r\n    \"goods\": [{\r\n        \"id\":\"205\",\r\n        \"count\":7,\r\n        \"selected\":true\r\n    },{\r\n        \"id\":\"204\",\r\n        \"count\":1,\r\n        \"selected\":false\r\n    }],\r\n    \"note\": \"857\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/order/create",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "order",
+                    "create"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 24 Jun 2026 00:58:10 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Thu, 19 Nov 1981 08:52:00 GMT"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store, no-cache, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "GET, POST, PATCH, PUT, DELETE"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-Requested-With"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 1,\n    \"msg\": \"订单创建成功\",\n    \"data\": \"\",\n    \"url\": \"/api/user._order/create.html\",\n    \"wait\": 3\n}"
+            }
+          ]
+        },
+        {
+          "name": "取消订单",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 404\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/order/cancel",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "order",
+                "cancel"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "取消订单",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"id\": 404\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/order/cancel",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "order",
+                    "cancel"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 24 Jun 2026 01:03:32 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Thu, 19 Nov 1981 08:52:00 GMT"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store, no-cache, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "GET, POST, PATCH, PUT, DELETE"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-Requested-With"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 1,\n    \"msg\": \"取消成功\",\n    \"data\": \"\",\n    \"url\": \"/api/user._order/cancel.html\",\n    \"wait\": 3\n}"
+            }
+          ]
+        },
+        {
+          "name": "获取订单列表",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/order/list",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "order",
+                "list"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "获取订单列表",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{token}}",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/order/list",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "order",
+                    "list"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 24 Jun 2026 01:00:53 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Thu, 19 Nov 1981 08:52:00 GMT"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store, no-cache, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "GET, POST, PATCH, PUT, DELETE"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-Requested-With"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 1,\n    \"msg\": \"\",\n    \"data\": [\n        {\n            \"id\": 404,\n            \"user_user_id\": 155,\n            \"price\": \"34192.00\",\n            \"address_name\": \"TOM\",\n            \"address_tel\": \"12345678901\",\n            \"address_area\": \"area\",\n            \"address_detail\": \"detail\",\n            \"note\": \"857\",\n            \"is_pay\": 0,\n            \"is_cancel\": 0,\n            \"create_time\": \"2026-06-24 08:58:10\",\n            \"update_time\": null,\n            \"user_order_goods\": [\n                {\n                    \"id\": 448,\n                    \"user_order_id\": 404,\n                    \"goods_goods_id\": 204,\n                    \"count\": 1,\n                    \"price\": \"2699.00\",\n                    \"create_time\": \"2026-06-24 08:58:10\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 204,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/26/0f3a81f2b4fddee4d187fc66331b3bc5.png\"\n                    }\n                },\n                {\n                    \"id\": 449,\n                    \"user_order_id\": 404,\n                    \"goods_goods_id\": 205,\n                    \"count\": 7,\n                    \"price\": \"4499.00\",\n                    \"create_time\": \"2026-06-24 08:58:10\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 205,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/26/473204a3de8187328c15bbdc3dd27696.png\"\n                    }\n                }\n            ]\n        },\n        {\n            \"id\": 149,\n            \"user_user_id\": 155,\n            \"price\": \"109990.00\",\n            \"address_name\": \"1\",\n            \"address_tel\": \"1\",\n            \"address_area\": \"1\",\n            \"address_detail\": \"1\",\n            \"note\": \"1\",\n            \"is_pay\": 0,\n            \"is_cancel\": 1,\n            \"create_time\": \"2024-05-27 09:59:14\",\n            \"update_time\": null,\n            \"user_order_goods\": [\n                {\n                    \"id\": 156,\n                    \"user_order_id\": 149,\n                    \"goods_goods_id\": 107,\n                    \"count\": 10,\n                    \"price\": \"10999.00\",\n                    \"create_time\": \"2024-05-27 09:59:14\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 107,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/07d7827212f0534873f3966788bfdcd8.png\"\n                    }\n                }\n            ]\n        },\n        {\n            \"id\": 148,\n            \"user_user_id\": 155,\n            \"price\": \"13497.00\",\n            \"address_name\": \"1\",\n            \"address_tel\": \"1\",\n            \"address_area\": \"1\",\n            \"address_detail\": \"1\",\n            \"note\": \"1\",\n            \"is_pay\": 0,\n            \"is_cancel\": 1,\n            \"create_time\": \"2024-05-27 09:18:46\",\n            \"update_time\": null,\n            \"user_order_goods\": [\n                {\n                    \"id\": 155,\n                    \"user_order_id\": 148,\n                    \"goods_goods_id\": 205,\n                    \"count\": 3,\n                    \"price\": \"4499.00\",\n                    \"create_time\": \"2024-05-27 09:18:46\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 205,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/26/473204a3de8187328c15bbdc3dd27696.png\"\n                    }\n                }\n            ]\n        },\n        {\n            \"id\": 147,\n            \"user_user_id\": 155,\n            \"price\": \"199.00\",\n            \"address_name\": \"1\",\n            \"address_tel\": \"1\",\n            \"address_area\": \"1\",\n            \"address_detail\": \"1\",\n            \"note\": \"1\",\n            \"is_pay\": 0,\n            \"is_cancel\": 0,\n            \"create_time\": \"2024-05-27 09:10:58\",\n            \"update_time\": null,\n            \"user_order_goods\": [\n                {\n                    \"id\": 154,\n                    \"user_order_id\": 147,\n                    \"goods_goods_id\": 131,\n                    \"count\": 1,\n                    \"price\": \"199.00\",\n                    \"create_time\": \"2024-05-27 09:10:58\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 131,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/2bf3d2aa37b0e5fe97991d438978abf1.png\"\n                    }\n                }\n            ]\n        },\n        {\n            \"id\": 146,\n            \"user_user_id\": 155,\n            \"price\": \"17996.00\",\n            \"address_name\": \"1\",\n            \"address_tel\": \"1\",\n            \"address_area\": \"1\",\n            \"address_detail\": \"1\",\n            \"note\": \"1\",\n            \"is_pay\": 0,\n            \"is_cancel\": 0,\n            \"create_time\": \"2024-05-27 09:04:07\",\n            \"update_time\": null,\n            \"user_order_goods\": [\n                {\n                    \"id\": 153,\n                    \"user_order_id\": 146,\n                    \"goods_goods_id\": 205,\n                    \"count\": 4,\n                    \"price\": \"4499.00\",\n                    \"create_time\": \"2024-05-27 09:04:07\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 205,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/26/473204a3de8187328c15bbdc3dd27696.png\"\n                    }\n                }\n            ]\n        },\n        {\n            \"id\": 145,\n            \"user_user_id\": 155,\n            \"price\": \"17996.00\",\n            \"address_name\": \"1\",\n            \"address_tel\": \"1\",\n            \"address_area\": \"1\",\n            \"address_detail\": \"1\",\n            \"note\": \"1\",\n            \"is_pay\": 0,\n            \"is_cancel\": 0,\n            \"create_time\": \"2024-05-27 08:56:44\",\n            \"update_time\": null,\n            \"user_order_goods\": [\n                {\n                    \"id\": 152,\n                    \"user_order_id\": 145,\n                    \"goods_goods_id\": 205,\n                    \"count\": 4,\n                    \"price\": \"4499.00\",\n                    \"create_time\": \"2024-05-27 08:56:44\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 205,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/26/473204a3de8187328c15bbdc3dd27696.png\"\n                    }\n                }\n            ]\n        },\n        {\n            \"id\": 144,\n            \"user_user_id\": 155,\n            \"price\": \"17398.00\",\n            \"address_name\": \"1\",\n            \"address_tel\": \"1\",\n            \"address_area\": \"1\",\n            \"address_detail\": \"1\",\n            \"note\": \"标记\",\n            \"is_pay\": 0,\n            \"is_cancel\": 0,\n            \"create_time\": \"2024-05-27 08:47:26\",\n            \"update_time\": null,\n            \"user_order_goods\": [\n                {\n                    \"id\": 150,\n                    \"user_order_id\": 144,\n                    \"goods_goods_id\": 110,\n                    \"count\": 1,\n                    \"price\": \"8899.00\",\n                    \"create_time\": \"2024-05-27 08:47:26\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 110,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/62c8acc73767b6011bb26b63db328284.png\"\n                    }\n                },\n                {\n                    \"id\": 151,\n                    \"user_order_id\": 144,\n                    \"goods_goods_id\": 112,\n                    \"count\": 1,\n                    \"price\": \"8499.00\",\n                    \"create_time\": \"2024-05-27 08:47:26\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 112,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/17f662527d300a4598258d726104a54f.png\"\n                    }\n                }\n            ]\n        },\n        {\n            \"id\": 139,\n            \"user_user_id\": 155,\n            \"price\": \"17398.00\",\n            \"address_name\": \"1\",\n            \"address_tel\": \"1\",\n            \"address_area\": \"1\",\n            \"address_detail\": \"1\",\n            \"note\": \"标记\",\n            \"is_pay\": 0,\n            \"is_cancel\": 0,\n            \"create_time\": \"2024-05-26 17:10:07\",\n            \"update_time\": null,\n            \"user_order_goods\": [\n                {\n                    \"id\": 147,\n                    \"user_order_id\": 139,\n                    \"goods_goods_id\": 110,\n                    \"count\": 1,\n                    \"price\": \"8899.00\",\n                    \"create_time\": \"2024-05-26 17:10:07\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 110,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/62c8acc73767b6011bb26b63db328284.png\"\n                    }\n                },\n                {\n                    \"id\": 148,\n                    \"user_order_id\": 139,\n                    \"goods_goods_id\": 112,\n                    \"count\": 1,\n                    \"price\": \"8499.00\",\n                    \"create_time\": \"2024-05-26 17:10:07\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 112,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/17f662527d300a4598258d726104a54f.png\"\n                    }\n                }\n            ]\n        },\n        {\n            \"id\": 122,\n            \"user_user_id\": 155,\n            \"price\": \"16898.00\",\n            \"address_name\": \"1\",\n            \"address_tel\": \"1\",\n            \"address_area\": \"1\",\n            \"address_detail\": \"1\",\n            \"note\": \"seccond\",\n            \"is_pay\": 0,\n            \"is_cancel\": 1,\n            \"create_time\": \"2024-05-24 16:44:11\",\n            \"update_time\": null,\n            \"user_order_goods\": [\n                {\n                    \"id\": 130,\n                    \"user_order_id\": 122,\n                    \"goods_goods_id\": 107,\n                    \"count\": 1,\n                    \"price\": \"10999.00\",\n                    \"create_time\": \"2024-05-24 16:44:11\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 107,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/07d7827212f0534873f3966788bfdcd8.png\"\n                    }\n                },\n                {\n                    \"id\": 131,\n                    \"user_order_id\": 122,\n                    \"goods_goods_id\": 114,\n                    \"count\": 1,\n                    \"price\": \"5899.00\",\n                    \"create_time\": \"2024-05-24 16:44:11\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 114,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/5cfe199a2d49bba9d6438ba118211cea.png\"\n                    }\n                }\n            ]\n        },\n        {\n            \"id\": 121,\n            \"user_user_id\": 155,\n            \"price\": \"16898.00\",\n            \"address_name\": \"1\",\n            \"address_tel\": \"1\",\n            \"address_area\": \"1\",\n            \"address_detail\": \"1\",\n            \"note\": \"first\",\n            \"is_pay\": 0,\n            \"is_cancel\": 1,\n            \"create_time\": \"2024-05-24 16:41:00\",\n            \"update_time\": null,\n            \"user_order_goods\": [\n                {\n                    \"id\": 128,\n                    \"user_order_id\": 121,\n                    \"goods_goods_id\": 107,\n                    \"count\": 1,\n                    \"price\": \"10999.00\",\n                    \"create_time\": \"2024-05-24 16:41:00\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 107,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/07d7827212f0534873f3966788bfdcd8.png\"\n                    }\n                },\n                {\n                    \"id\": 129,\n                    \"user_order_id\": 121,\n                    \"goods_goods_id\": 114,\n                    \"count\": 1,\n                    \"price\": \"5899.00\",\n                    \"create_time\": \"2024-05-24 16:41:00\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 114,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/5cfe199a2d49bba9d6438ba118211cea.png\"\n                    }\n                }\n            ]\n        },\n        {\n            \"id\": 120,\n            \"user_user_id\": 155,\n            \"price\": \"16398.00\",\n            \"address_name\": \"1\",\n            \"address_tel\": \"1\",\n            \"address_area\": \"1\",\n            \"address_detail\": \"1\",\n            \"note\": \"first\",\n            \"is_pay\": 0,\n            \"is_cancel\": 1,\n            \"create_time\": \"2024-05-24 16:18:40\",\n            \"update_time\": null,\n            \"user_order_goods\": [\n                {\n                    \"id\": 126,\n                    \"user_order_id\": 120,\n                    \"goods_goods_id\": 108,\n                    \"count\": 1,\n                    \"price\": \"7499.00\",\n                    \"create_time\": \"2024-05-24 16:18:40\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 108,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/346eb5e421af8f01bc603b0f40ee51bd.png\"\n                    }\n                },\n                {\n                    \"id\": 127,\n                    \"user_order_id\": 120,\n                    \"goods_goods_id\": 110,\n                    \"count\": 1,\n                    \"price\": \"8899.00\",\n                    \"create_time\": \"2024-05-24 16:18:40\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 110,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/62c8acc73767b6011bb26b63db328284.png\"\n                    }\n                }\n            ]\n        },\n        {\n            \"id\": 91,\n            \"user_user_id\": 155,\n            \"price\": \"57872.00\",\n            \"address_name\": \"Tom\",\n            \"address_tel\": \"15000536100\",\n            \"address_area\": \"area\",\n            \"address_detail\": \"detail\",\n            \"note\": \"first\",\n            \"is_pay\": 0,\n            \"is_cancel\": 1,\n            \"create_time\": \"2024-05-24 10:33:16\",\n            \"update_time\": null,\n            \"user_order_goods\": [\n                {\n                    \"id\": 106,\n                    \"user_order_id\": 91,\n                    \"goods_goods_id\": 109,\n                    \"count\": 5,\n                    \"price\": \"3299.00\",\n                    \"create_time\": \"2024-05-24 10:33:16\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 109,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/a36fcca14a875aa21ac5d796480c53e4.png\"\n                    }\n                },\n                {\n                    \"id\": 107,\n                    \"user_order_id\": 91,\n                    \"goods_goods_id\": 111,\n                    \"count\": 23,\n                    \"price\": \"1799.00\",\n                    \"create_time\": \"2024-05-24 10:33:16\",\n                    \"update_time\": null,\n                    \"goods_goods\": {\n                        \"id\": 111,\n                        \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/24/41b990234db3342751dd326c4da58a7b.png\"\n                    }\n                }\n            ]\n        }\n    ],\n    \"url\": \"/api/user._order/index.html\",\n    \"wait\": 3\n}"
+            }
+          ]
+        },
+        {
+          "name": "获取订单详情",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"id\": 149\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/order/show",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "order",
+                "show"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "获取订单详情",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "{{token}}",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"id\": 149\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/order/show",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "order",
+                    "show"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "Server",
+                  "value": "nginx"
+                },
+                {
+                  "key": "Date",
+                  "value": "Wed, 24 Jun 2026 01:03:36 GMT"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Transfer-Encoding",
+                  "value": "chunked"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Expires",
+                  "value": "Thu, 19 Nov 1981 08:52:00 GMT"
+                },
+                {
+                  "key": "Cache-Control",
+                  "value": "no-store, no-cache, must-revalidate"
+                },
+                {
+                  "key": "Pragma",
+                  "value": "no-cache"
+                },
+                {
+                  "key": "Access-Control-Allow-Credentials",
+                  "value": "true"
+                },
+                {
+                  "key": "Access-Control-Allow-Methods",
+                  "value": "GET, POST, PATCH, PUT, DELETE"
+                },
+                {
+                  "key": "Access-Control-Allow-Headers",
+                  "value": "Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-Requested-With"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"code\": 1,\n    \"msg\": \"\",\n    \"data\": {\n        \"id\": 404,\n        \"user_user_id\": 155,\n        \"price\": \"34192.00\",\n        \"address_name\": \"TOM\",\n        \"address_tel\": \"12345678901\",\n        \"address_area\": \"area\",\n        \"address_detail\": \"detail\",\n        \"note\": \"857\",\n        \"is_pay\": 0,\n        \"is_cancel\": 1,\n        \"create_time\": \"2026-06-24 08:58:10\",\n        \"update_time\": null,\n        \"user_order_goods\": [\n            {\n                \"id\": 448,\n                \"user_order_id\": 404,\n                \"goods_goods_id\": 204,\n                \"count\": 1,\n                \"price\": \"2699.00\",\n                \"create_time\": \"2026-06-24 08:58:10\",\n                \"update_time\": null,\n                \"goods_goods\": {\n                    \"id\": 204,\n                    \"name\": \"Redmi K50 至尊版\",\n                    \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/26/0f3a81f2b4fddee4d187fc66331b3bc5.png\"\n                }\n            },\n            {\n                \"id\": 449,\n                \"user_order_id\": 404,\n                \"goods_goods_id\": 205,\n                \"count\": 7,\n                \"price\": \"4499.00\",\n                \"create_time\": \"2026-06-24 08:58:10\",\n                \"update_time\": null,\n                \"goods_goods\": {\n                    \"id\": 205,\n                    \"name\": \"黑鲨4SPro\",\n                    \"image\": \"http://10.110.37.26/static/uploads/goods/goods_image/2024/04/26/473204a3de8187328c15bbdc3dd27696.png\"\n                }\n            }\n        ]\n    },\n    \"url\": \"/api/user._order/show.html\",\n    \"wait\": 3\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

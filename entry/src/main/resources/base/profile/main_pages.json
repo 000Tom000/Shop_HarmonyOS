@@ -1,0 +1,14 @@
+{
+  "src": [
+    "pages/Index",
+    "pages/MainPage",
+    "pages/GoodsInfoPage",
+    "pages/LoginPage",
+    "pages/NewsInfoPage",
+    "pages/RegisterPage",
+    "pages/AddressManagePage",
+    "pages/AddressEditPage",
+    "pages/OrderDetailPage",
+    "pages/OrdersPage"
+  ]
+}
