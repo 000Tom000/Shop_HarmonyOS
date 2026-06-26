@@ -1,6 +1,6 @@
 import { PromptAction, Router } from '@ohos.arkui.UIContext';
 import preferences from '@ohos.data.preferences';
-import { User } from '../api/User';
+import { User, checkLoginStatus } from '../api/User';
 import { JSON } from '@kit.ArkTS';
 
 @Entry
@@ -16,17 +16,25 @@ struct Index {
     // }, 1111);
   }
 
-  loadUserData() {
+  async loadUserData() {
     try {
-      preferences.getPreferences(getContext(), 'user').then((prefs) => {
-        prefs.get("user", "").then((saved) => {
-          if (saved) {
-            const user: User = JSON.parse(saved.toString()) as User;
-            AppStorage.setOrCreate("user", user);
-            AppStorage.setOrCreate("token", user.session_id);
-          }
-        });
-      });
+      const prefs = await preferences.getPreferences(getContext(), 'user');
+      const saved = await prefs.get("user", "");
+      if (saved) {
+        const user: User = JSON.parse(saved.toString()) as User;
+        AppStorage.setOrCreate("user", user);
+        AppStorage.setOrCreate("token", user.session_id);
+
+        // 向后台验证token是否仍然有效
+        const isValid = await checkLoginStatus();
+        if (!isValid) {
+          // token已过期，清除本地用户数据
+          AppStorage.setOrCreate("user", null);
+          AppStorage.setOrCreate("token", null);
+          await prefs.delete("user");
+          await prefs.flush();
+        }
+      }
     } catch (e) {
       // 首次启动无数据，忽略
     }
