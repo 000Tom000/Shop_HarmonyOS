@@ -118,7 +118,7 @@ export struct AI {
             .fontSize(15)
             .constraintSize({ maxWidth: "70%" })
         }
-        Image("https://p3-pc-sign.douyinpic.com/aweme-avatar/tos-cn-avt-0015_2da259f49bbcf70d7592d0ba4ef3a9bb~tplv-8yspqt5zfm-300x300.webp?lk3s=93de098e&x-expires=1782288000&x-signature=9tPqJTNLl4Bsc7YTLBcWTQY7qAQ%3D&from=2480802190&s=profile&se=false&sc=avatar&l=2026062216555839A8A2D89BB2DD09C993")
+        Image($r("app.media.user"))
           .width(36)
           .height(36)
           .borderRadius(18)
